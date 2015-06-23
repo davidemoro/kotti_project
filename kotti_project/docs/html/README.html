@@ -1,0 +1,555 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>kotti_project &mdash; kotti_project 0.1.1.dev0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.1.1.dev0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="kotti_project 0.1.1.dev0 documentation" href="index.html" />
+    <link rel="next" title="CHANGELOG" href="CHANGES.html" />
+    <link rel="prev" title="Welcome to kotti_project’s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="CHANGES.html" title="CHANGELOG"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to kotti_project’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">kotti_project 0.1.1.dev0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="kotti-project">
+<h1>kotti_project<a class="headerlink" href="#kotti-project" title="Permalink to this headline">¶</a></h1>
+<p>Kotti is a high-level, Pythonic web application framework based on <a class="reference external" href="http://docs.pylonsproject.org/projects/pyramid/dev/">Pyramid</a> and <a class="reference external" href="http://www.sqlalchemy.org/">SQLAlchemy</a>.
+It includes an extensible Content Management System called the Kotti CMS (see below).</p>
+<p>Kotti is most useful when you are developing applications that</p>
+<ul class="simple">
+<li>have complex security requirements,</li>
+<li>use workflows, and/or</li>
+<li>work with hierarchical data.</li>
+</ul>
+<p>Built on top of a number of <em>best-of-breed</em> software components,
+most notably <a class="reference external" href="http://docs.pylonsproject.org/projects/pyramid/dev/">Pyramid</a> and <a class="reference external" href="http://www.sqlalchemy.org/">SQLAlchemy</a>,
+Kotti introduces only a few concepts of its own,
+thus hopefully keeping the learning curve flat for the developer.</p>
+<div class="section" id="what-is-kotti-project">
+<h2>What is <code class="docutils literal"><span class="pre">kotti_project</span></code>?<a class="headerlink" href="#what-is-kotti-project" title="Permalink to this headline">¶</a></h2>
+<p>You can consider <code class="docutils literal"><span class="pre">kotti_project</span></code> as a meta-package or a Kotti CMS <strong>distribution</strong> with
+the following goals:</p>
+<ul>
+<li><p class="first">introduces the <code class="docutils literal"><span class="pre">project</span></code> concept.
+So the suggested installation method is not just put a couple of configuration <code class="docutils literal"><span class="pre">.ini</span></code>
+and <code class="docutils literal"><span class="pre">.txt</span></code> requirement files but a more structured approach,
+without introducing a more complex layer like <code class="docutils literal"><span class="pre">buildout</span></code></p>
+</li>
+<li><p class="first">tries to be more friendly to non-Python folks who want to try out Kotti.
+It might be difficult for non-Python developers understand things like install a virtualenv,
+activate the virtualenv and so on. That&#8217;s why there is a regular <code class="docutils literal"><span class="pre">Makefile</span></code> that should
+make the life easier if you want to install a Kotti project and its prerequisites</p>
+</li>
+<li><p class="first">includes the most useful third party plugins not included in the Kotti core,
+useful if you want to try out Kotti in a quick way</p>
+<blockquote>
+<div><ul class="simple">
+<li>navigation (<code class="docutils literal"><span class="pre">kotti_navigation</span></code>)</li>
+<li>events (<code class="docutils literal"><span class="pre">kotti_calendar</span></code>)</li>
+<li>news (<code class="docutils literal"><span class="pre">kotti_news</span></code>)</li>
+</ul>
+</div></blockquote>
+<p>You can also add other Kotti plugins published on PyPI. See <a class="reference external" href="https://pypi.python.org/pypi?%3Aaction=search&amp;term=kotti&amp;submit=search">https://pypi.python.org/pypi?%3Aaction=search&amp;term=kotti&amp;submit=search</a></p>
+</li>
+<li><dl class="first docutils">
+<dt>Kotti CMS &#8220;batteries included&#8221; installation</dt>
+<dd><ul class="first last simple">
+<li>make commands for build and installation</li>
+<li>right env setup</li>
+<li>setup logging with logrotate enabled for production environments</li>
+<li>ready to be used NGINX, uWSGI conf</li>
+<li>sqlalchemy string connection examples for the most used relational databases</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p class="first">Windows support</p>
+<blockquote>
+<div><ul class="simple">
+<li>Windows service creation with error log</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">support for development and production mode, useful if you are developing a large application
+based on Kotti with tag-based deployements</p>
+</li>
+<li><p class="first">scaffolding/seed tool, you can generate your own custom projects starting from <code class="docutils literal"><span class="pre">kotti_project</span></code> (eg: <code class="docutils literal"><span class="pre">$</span> <span class="pre">kotti_project_clone</span> <span class="pre">kotti_anotherproject</span></code>)</p>
+</li>
+<li><p class="first">project <strong>documentation</strong> support based on Sphinx, ready to be used (<a class="reference external" href="http://localhost:5000/docs/">http://localhost:5000/docs/</a>)</p>
+</li>
+<li><p class="first">easy assets customization (kotti-overrides)</p>
+</li>
+<li><p class="first">Vagrant + Ansible support + remote deploy support?</p>
+</li>
+<li><p class="first">provides ready to be used real world database connection examples</p>
+</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="prerequisites">
+<h3>Prerequisites<a class="headerlink" href="#prerequisites" title="Permalink to this headline">¶</a></h3>
+<p>You&#8217;ll need these prerequisites:</p>
+<ul class="simple">
+<li>external libraries, python and virtualenv</li>
+<li>database specific</li>
+<li>msgfmt (gettext), only for development</li>
+</ul>
+<div class="section" id="external-libraries-python-and-virtualenv">
+<h4>External libraries, Python and virtualenv<a class="headerlink" href="#external-libraries-python-and-virtualenv" title="Permalink to this headline">¶</a></h4>
+<p>Just run the following command (apt-get commands):</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make install-prerequisites
+</pre></div>
+</div>
+<p>Or do it by hand as shown here.</p>
+<p>External libraries for image resize, see <a class="reference external" href="http://pillow.readthedocs.org/en/latest/installation.html#external-libraries">http://pillow.readthedocs.org/en/latest/installation.html#external-libraries</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install libtiff5-dev libjpeg8-dev zlib1g-dev \
+libfreetype6-dev liblcms2-dev libwebp-dev tcl8.6-dev tk8.6-dev python-tk
+</pre></div>
+</div>
+<p>Python and virtualenv:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install build-essential python python-dev python-virtualenv
+</pre></div>
+</div>
+</div>
+<div class="section" id="database-specific">
+<h4>Database specific<a class="headerlink" href="#database-specific" title="Permalink to this headline">¶</a></h4>
+<p>If you are going to use a certain database you might need to install specific libraries.</p>
+<p><code class="docutils literal"><span class="pre">Postgresql</span></code> specific requirements:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ apt-get install libpq-dev
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">Mysql</span></code> specific configuration (mysql-python and uwsgi needed in your python env):</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install libmysqlclient-dev
+</pre></div>
+</div>
+<p>If your project is mysql based, just edit your <code class="docutils literal"><span class="pre">production-requirements.txt</span></code> file
+like that (it will enable database specific optional dependencies):</p>
+<div class="highlight-python"><div class="highlight"><pre>-e .[mysql]
+</pre></div>
+</div>
+</div>
+<div class="section" id="msgfmt-gettext-only-for-development">
+<h4>msgfmt (gettext), only for development<a class="headerlink" href="#msgfmt-gettext-only-for-development" title="Permalink to this headline">¶</a></h4>
+<p>Just install gettext:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ sudo apt-get install gettext
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="kotti-project-installation">
+<h3>kotti_project installation<a class="headerlink" href="#kotti-project-installation" title="Permalink to this headline">¶</a></h3>
+<p>Clone kotti_project and be sure you have installed all the prerequisites.</p>
+<p>Development mode:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make install-prerequisites
+$ make install-dev
+$ make run-dev
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="various">
+<h2>Various<a class="headerlink" href="#various" title="Permalink to this headline">¶</a></h2>
+<p>How to manage, maintain and evolve kotti_project.</p>
+<div class="section" id="makefile">
+<h3>Makefile<a class="headerlink" href="#makefile" title="Permalink to this headline">¶</a></h3>
+<p>This project is based on a Makefile. See all the available options:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make help
+</pre></div>
+</div>
+</div>
+<div class="section" id="available-ini-files">
+<h3>Available .ini files<a class="headerlink" href="#available-ini-files" title="Permalink to this headline">¶</a></h3>
+<p>Describe the available .ini files.</p>
+<ul>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">base.ini</span></code></dt>
+<dd><ul class="first last simple">
+<li>base profile</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">development.ini</span></code> (inherits from <code class="docutils literal"><span class="pre">base.ini</span></code>)</dt>
+<dd><ul class="first last simple">
+<li>sqlite</li>
+<li>debug options ON</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><code class="docutils literal"><span class="pre">production.ini</span></code> (inherits from <code class="docutils literal"><span class="pre">base.ini</span></code>)</dt>
+<dd><ul class="first last simple">
+<li>real DBMS connection</li>
+<li>debug options OFF</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="supervisord">
+<h3>supervisord<a class="headerlink" href="#supervisord" title="Permalink to this headline">¶</a></h3>
+<p>You can rely on uwsgi, supervisord, circusd or other process managegers. The app itself
+should be served by Nginx or Apache with wsgi support.</p>
+<p>See <a class="reference external" href="http://kotti.readthedocs.org/en/latest/developing/basic/deployment.html">http://kotti.readthedocs.org/en/latest/developing/basic/deployment.html</a>.</p>
+<p>With kotti_project you can generate automatically a working supervisord configuration for
+real deployments with (run this command just one time for initialization):</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make templates
+</pre></div>
+</div>
+<p>It will create automatically a kotti_project.conf in parts/etc/supervisor/conf.d.
+You can create a symbolic link in /etc/supervisor/conf.d.</p>
+<p>Once installed supervisor and linked the generated configuration you can start your app:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ supervisorctl start kotti_project
+</pre></div>
+</div>
+</div>
+<div class="section" id="logging">
+<h3>Logging<a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<p>All exceptions will be logged under the exception.log file for Windows, pserve, uwsgi.
+No logs with supervisord+uwsgi.</p>
+</div>
+<div class="section" id="how-to-pick-versions-and-update-requirements-txt">
+<h3>How to pick versions and update requirements.txt<a class="headerlink" href="#how-to-pick-versions-and-update-requirements-txt" title="Permalink to this headline">¶</a></h3>
+<p>... of your dependencies (and your dependencies&#8217;dependencies).</p>
+<p>So <strong>NEVER</strong> edit manually requirements.txt!</p>
+<p>You SHOULD edit <em>both</em>:</p>
+<ul class="simple">
+<li>devel-requirements.txt (&#64;develop)</li>
+<li>production-requirements.txt (&#64;tags)</li>
+</ul>
+<p>The <code class="docutils literal"><span class="pre">devel-requirements.txt</span></code> will enable your editable (-e) versioned eggs in
+development mode, the <code class="docutils literal"><span class="pre">production-requirements.txt</span></code> will be bound to
+tags (eg: 0.1) without development extensions.</p>
+<p>Once updated the production-requirements.txt, you can update the resulting requirements.txt
+with just one command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make update-requirements
+</pre></div>
+</div>
+<p>The <code class="docutils literal"><span class="pre">production-requirements.txt</span></code> is only a template for the final and more
+readable <code class="docutils literal"><span class="pre">requirements.txt</span></code> file (preserve order, comments, etc).</p>
+</div>
+<div class="section" id="how-to-tag-development-plugins">
+<h3>How to tag development plugins<a class="headerlink" href="#how-to-tag-development-plugins" title="Permalink to this headline">¶</a></h3>
+<p>This feature requires a development setup of the project, so you should switch
+to the python-dev mode.</p>
+<p>Commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>(python-dev) $ cd python-dev/src/yourpackage
+(python-dev) $ fullrelease .
+</pre></div>
+</div>
+<p>Be careful for private packages (say no for publishing on Pypi!).</p>
+<p>This command will manage:</p>
+<ul class="simple">
+<li>updates the release date on <code class="docutils literal"><span class="pre">CHANGES.txt</span></code></li>
+<li>creates a tag on the repo</li>
+<li>optionally, publish on <code class="docutils literal"><span class="pre">PyPI</span></code> or other configured external services</li>
+<li>creates a new development version on <code class="docutils literal"><span class="pre">CHANGES.txt</span></code> for tracking changes</li>
+<li>updates the new version on <code class="docutils literal"><span class="pre">setup.py</span></code> (development)`.</li>
+</ul>
+<p>You can and <strong>should</strong> tag also the <code class="docutils literal"><span class="pre">kotti_project</span></code> itself, this way you will be
+able to easily perform tag deployements.</p>
+</div>
+<div class="section" id="how-to-generate-new-plugins">
+<h3>How to generate new plugins<a class="headerlink" href="#how-to-generate-new-plugins" title="Permalink to this headline">¶</a></h3>
+<p>... with a package generator.</p>
+<p>Kotti plugin:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ pcreate -s kotti kotti_yourplugin
+</pre></div>
+</div>
+<p>You can see the whole list of available generators typing:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ pcreate -l
+</pre></div>
+</div>
+<p>Once generated your plugin you should versionate it and add
+a line to your <code class="docutils literal"><span class="pre">devel-requirements.txt</span></code> file (see &#8220;How to pick versions&#8221;)
+like that:</p>
+<div class="highlight-python"><div class="highlight"><pre>-e git+https://github.com/.../kotti_yourplugin.git#egg=kotti_yourplugin
+</pre></div>
+</div>
+<p>Once t$he plugin is tagged, you can register it to the <code class="docutils literal"><span class="pre">production-requiremements.txt</span></code>
+and update the final <code class="docutils literal"><span class="pre">requirements.txt</span></code>.</p>
+<p>Depending on the type of dependency added (generic Python library or
+a framework plugin), you might need other configuration steps
+(for example edit your app.ini file).</p>
+</div>
+<div class="section" id="how-to-launch-tests">
+<h3>How to launch tests<a class="headerlink" href="#how-to-launch-tests" title="Permalink to this headline">¶</a></h3>
+<p>First of all you need to activate the python-dev environment.
+Once activated the right environment you can go to a package and launch
+tests like that:</p>
+<div class="highlight-python"><div class="highlight"><pre>(python-dev) $ cd src/plugin
+(python-dev) $ py.test
+</pre></div>
+</div>
+<p>or if you get errors try with:</p>
+<div class="highlight-python"><div class="highlight"><pre>(python-dev) $ py.test plugin
+</pre></div>
+</div>
+</div>
+<div class="section" id="assets-management">
+<h3>assets management<a class="headerlink" href="#assets-management" title="Permalink to this headline">¶</a></h3>
+<p>See:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://kotti.readthedocs.org/en/latest/developing/advanced/static-resource-management.html">http://kotti.readthedocs.org/en/latest/developing/advanced/static-resource-management.html</a></li>
+</ul>
+</div>
+<div class="section" id="project-cloning">
+<h3>project cloning<a class="headerlink" href="#project-cloning" title="Permalink to this headline">¶</a></h3>
+<p>You can clone this existing project and create a new one with just one
+command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ kotti_project_clone PIPPO_project
+</pre></div>
+</div>
+<p>This command will generate a new project for the pippo project. This seems the quickest
+way to keep things updated (generators are too heavy to maintain).
+The clone console script is based on this simple technique:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://davidemoro.blogspot.it/2014/09/plone-angularjs-yeoman-starter.html">http://davidemoro.blogspot.it/2014/09/plone-angularjs-yeoman-starter.html</a> (see the scaffolding tool section)</li>
+</ul>
+</div>
+<div class="section" id="generate-project-documentation">
+<h3>generate project documentation<a class="headerlink" href="#generate-project-documentation" title="Permalink to this headline">¶</a></h3>
+<p>This documentation is automatically generated with Sphinx.</p>
+<p>The development mode of kotti_project provides sphinx documentation.</p>
+<p>Command:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ make html
+</pre></div>
+</div>
+<p>You can easily generate other formats like PDF, ePUB, etc.</p>
+<p>See:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.python.org/devguide/documenting.html">https://docs.python.org/devguide/documenting.html</a></li>
+<li><a class="reference external" href="https://pythonhosted.org/an_example_pypi_project/sphinx.html">https://pythonhosted.org/an_example_pypi_project/sphinx.html</a></li>
+<li><a class="reference external" href="http://docs.readthedocs.org/en/latest/index.html">http://docs.readthedocs.org/en/latest/index.html</a></li>
+<li><a class="reference external" href="http://sphinx-doc.org/">http://sphinx-doc.org/</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="windows">
+<h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="build-issues-on-windows">
+<h3>Build issues on Windows<a class="headerlink" href="#build-issues-on-windows" title="Permalink to this headline">¶</a></h3>
+<p>We tried to install kotti under windows without problems, but each on the customer&#8217;s
+server there were some wrong compilation issues of C-based components (py-bcrypt).</p>
+<p>We followed these resources in order to compile successfully py-bcrypt under Windows 2008
+R2 server:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://code.google.com/p/py-bcrypt/issues/detail?id=18">https://code.google.com/p/py-bcrypt/issues/detail?id=18</a></li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/10773732/compilation-error-in-visual-studio-linked-with-python26">http://stackoverflow.com/questions/10773732/compilation-error-in-visual-studio-linked-with-python26</a></li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/2817869/error-unable-to-find-vcvarsall-bat">http://stackoverflow.com/questions/2817869/error-unable-to-find-vcvarsall-bat</a></li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/3047542/building-lxml-for-python-2-7-on-windows/5122521#5122521">http://stackoverflow.com/questions/3047542/building-lxml-for-python-2-7-on-windows/5122521#5122521</a></li>
+<li><a class="reference external" href="http://stackoverflow.com/questions/17108102/download-and-install-visual-studio-2008">http://stackoverflow.com/questions/17108102/download-and-install-visual-studio-2008</a></li>
+<li><a class="reference external" href="http://blogs.msdn.com/b/vijaysk/archive/2009/08/16/you-must-use-the-role-management-tool-to-install-or-configure-microsoft-net-framework-3-5.aspx">http://blogs.msdn.com/b/vijaysk/archive/2009/08/16/you-must-use-the-role-management-tool-to-install-or-configure-microsoft-net-framework-3-5.aspx</a></li>
+<li><a class="reference external" href="https://msahputra.wordpress.com/2009/04/13/clexe-for-vc9-visual-studio-2008/">https://msahputra.wordpress.com/2009/04/13/clexe-for-vc9-visual-studio-2008/</a>
+(copy mspdb80.dll and run vsvars32.bat)</li>
+<li>Still same situation described in #18</li>
+<li><a class="reference external" href="https://code.google.com/p/py-bcrypt/issues/detail?id=15">https://code.google.com/p/py-bcrypt/issues/detail?id=15</a></li>
+<li>Plus added missing stdint.h
+<a class="reference external" href="http://msinttypes.googlecode.com/svn/trunk/stdint.h">http://msinttypes.googlecode.com/svn/trunk/stdint.h</a></li>
+</ul>
+</div>
+<div class="section" id="mysql-issues-on-windows">
+<h3>MySQL issues on Windows<a class="headerlink" href="#mysql-issues-on-windows" title="Permalink to this headline">¶</a></h3>
+<p>MySQL on Windows need additional options in order to avoid the following errors:</p>
+<ul class="simple">
+<li>InterfaceError</li>
+<li>OperationalError</li>
+<li>MySQL Server has gone away</li>
+<li>etc</li>
+</ul>
+<p>You could adjust the mysql options like that:</p>
+<div class="highlight-python"><div class="highlight"><pre>[mysqld]
+max_allowed_packet = 1000MB    # max transaction allowed
+wait_timeout = 28800
+interactive_timeout = 2880
+</pre></div>
+</div>
+</div>
+<div class="section" id="windows-service">
+<h3>Windows service<a class="headerlink" href="#windows-service" title="Permalink to this headline">¶</a></h3>
+<p>This software is installed as a regular windows service (kottisvc.py).</p>
+<p>See:</p>
+<ul class="simple">
+<li><a class="reference external" href="http://pyramid-cookbook.readthedocs.org/en/latest/deployment/windows.html">http://pyramid-cookbook.readthedocs.org/en/latest/deployment/windows.html</a></li>
+</ul>
+<p>We have associated a file system exception log (with autorotate option) to the windows service.</p>
+</div>
+<div class="section" id="deployements">
+<h3>Deployements<a class="headerlink" href="#deployements" title="Permalink to this headline">¶</a></h3>
+<p>We use a tagged-based deploy system. The software was installed in C:kottikotti_project (not
+versioned folder). Inside this folder you can find the kotti_project repo (versioned, pointing
+to a released tag).</p>
+<p>I assume you are following a tag based deployement (on Windows c:..kotti_projectpythonScriptsactivate).</p>
+<p>First of all activate the production virtualenv:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ source python/bin/activate
+</pre></div>
+</div>
+<p>And then:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ git fetch
+$ git checkout tags/X.Y.Z
+$ pip install -r requirements.txt
+</pre></div>
+</div>
+<p>All the above steps could be easily performed automatically via Ansible or other systems.</p>
+</div>
+</div>
+<div class="section" id="useful-links">
+<h2>Useful links<a class="headerlink" href="#useful-links" title="Permalink to this headline">¶</a></h2>
+<p>See:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/Kotti/Kotti/blob/master/docs/developing/basic/deployment.rst">https://github.com/Kotti/Kotti/blob/master/docs/developing/basic/deployment.rst</a></li>
+<li><a class="reference external" href="http://projects.unbit.it/uwsgi/wiki/INIFiles">http://projects.unbit.it/uwsgi/wiki/INIFiles</a></li>
+<li><a class="reference external" href="http://kotti.readthedocs.org/en/latest/developing/basic/deployment.html">http://kotti.readthedocs.org/en/latest/developing/basic/deployment.html</a></li>
+</ul>
+</div>
+<div class="section" id="authors">
+<h2>Authors<a class="headerlink" href="#authors" title="Permalink to this headline">¶</a></h2>
+<p>Davide Moro</p>
+<ul class="simple">
+<li>Twitter - <a class="reference external" href="https://twitter.com/davidemoro">https://twitter.com/davidemoro</a></li>
+<li>Linkedin - <a class="reference external" href="http://www.linkedin.com/in/davidemoro82">http://www.linkedin.com/in/davidemoro82</a></li>
+<li>Blog - <a class="reference external" href="http://davidemoro.blogspot.com">http://davidemoro.blogspot.com</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">kotti_project</a><ul>
+<li><a class="reference internal" href="#what-is-kotti-project">What is <code class="docutils literal"><span class="pre">kotti_project</span></code>?</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#prerequisites">Prerequisites</a><ul>
+<li><a class="reference internal" href="#external-libraries-python-and-virtualenv">External libraries, Python and virtualenv</a></li>
+<li><a class="reference internal" href="#database-specific">Database specific</a></li>
+<li><a class="reference internal" href="#msgfmt-gettext-only-for-development">msgfmt (gettext), only for development</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#kotti-project-installation">kotti_project installation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#various">Various</a><ul>
+<li><a class="reference internal" href="#makefile">Makefile</a></li>
+<li><a class="reference internal" href="#available-ini-files">Available .ini files</a></li>
+<li><a class="reference internal" href="#supervisord">supervisord</a></li>
+<li><a class="reference internal" href="#logging">Logging</a></li>
+<li><a class="reference internal" href="#how-to-pick-versions-and-update-requirements-txt">How to pick versions and update requirements.txt</a></li>
+<li><a class="reference internal" href="#how-to-tag-development-plugins">How to tag development plugins</a></li>
+<li><a class="reference internal" href="#how-to-generate-new-plugins">How to generate new plugins</a></li>
+<li><a class="reference internal" href="#how-to-launch-tests">How to launch tests</a></li>
+<li><a class="reference internal" href="#assets-management">assets management</a></li>
+<li><a class="reference internal" href="#project-cloning">project cloning</a></li>
+<li><a class="reference internal" href="#generate-project-documentation">generate project documentation</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#windows">Windows</a><ul>
+<li><a class="reference internal" href="#build-issues-on-windows">Build issues on Windows</a></li>
+<li><a class="reference internal" href="#mysql-issues-on-windows">MySQL issues on Windows</a></li>
+<li><a class="reference internal" href="#windows-service">Windows service</a></li>
+<li><a class="reference internal" href="#deployements">Deployements</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#useful-links">Useful links</a></li>
+<li><a class="reference internal" href="#authors">Authors</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to kotti_project&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="CHANGES.html"
+                        title="next chapter">CHANGELOG</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/README.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="CHANGES.html" title="CHANGELOG"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to kotti_project’s documentation!"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">kotti_project 0.1.1.dev0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2015, Kottii developers.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
+    </div>
+  </body>
+</html>

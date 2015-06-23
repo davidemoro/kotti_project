@@ -1,0 +1,9 @@
+---
+server_hostname: kotti_project
+app_folder: kotti_project
+database_name: kotti
+database_user: kotti
+database_password: qwerty
+host_user: kotti
+repo: https://github.com/davidemoro/kotti_project.git
+version: master

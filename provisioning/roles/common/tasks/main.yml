@@ -1,0 +1,29 @@
+---
+- name: update the apt cache
+  apt: update_cache=yes
+
+- name: ensure packages are installed (python support)
+  apt:  pkg={{item}} state=latest
+  with_items:
+      - build-essential
+      - python
+      - python-dev
+      - python-virtualenv
+  
+- name: ensure packages are installed (image support)
+  apt:  pkg={{item}} state=latest
+  with_items:
+      - libtiff5-dev
+      - libjpeg8-dev
+      - zlib1g-dev
+      - libfreetype6-dev
+      - liblcms2-dev
+      - libwebp-dev
+      - tcl8.6-dev
+      - tk8.6-dev
+      - python-tk
+
+- name: ensure various packages are installed
+  apt:  pkg={{item}} state=latest
+  with_items:
+      - git

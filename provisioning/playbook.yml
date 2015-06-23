@@ -1,0 +1,12 @@
+---
+- name: Kotti CMS setup with Vagrant-Ansible
+  hosts: all
+  sudo: yes
+      
+  roles:
+    - common
+    - user
+    - postgres
+    - kotti
+    - supervisor
+    - nginx

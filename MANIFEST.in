@@ -1,0 +1,10 @@
+include *.txt
+include *.rst
+include *.bat
+include *.sh
+include *.ini
+include *.cfg
+include Makefile
+recursive-include source *
+recursive-include templates *
+recursive-include kotti_project *

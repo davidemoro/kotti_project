@@ -1,0 +1,36 @@
+---
+- name: Fetch app code
+  git: repo={{ repo }}
+       dest=/home/{{ host_user}}/{{ app_folder }}
+       version={{ version }}
+  sudo: yes
+  sudo_user: "{{ host_user }}"
+
+- stat: path=/home/{{ host_user }}/{{ app_folder}}/python
+  register: python_virtualenv
+
+- name: Install python env (very first time)
+  command: make -C /home/{{ host_user }}/{{ app_folder}}  python
+  when: not python_virtualenv.stat.exists
+  sudo: yes
+  sudo_user: "{{ host_user }}"
+
+- name: Fix pip (see https://bugs.launchpad.net/ubuntu/+source/python-pip/+bug/1306991)
+  command: /home/{{ host_user }}/{{ app_folder }}/python/bin/easy_install -U pip
+  sudo: yes
+  sudo_user: "{{ host_user }}"
+
+- name: requirements.txt
+  command: /home/{{ host_user }}/{{ app_folder }}/python/bin/pip install -r /home/{{ host_user }}/{{ app_folder}}/requirements.txt
+  sudo: yes
+  sudo_user: "{{ host_user }}"
+
+- name: install kotti_project (python setup.py install error for a python_ansible_interpreter issue)
+  command: /home/{{ host_user }}/{{ app_folder }}/python/bin/pip install /home/{{ host_user }}/{{ app_folder }}
+  sudo: yes
+  sudo_user: "{{ host_user }}"
+  notify: reload supervisorctl
+
+- name: reload nginx
+  command: echo "Reload nginx"
+  notify: reload nginx

@@ -1,0 +1,11 @@
+---
+- name: Install supervisor
+  apt: pkg=supervisor state=latest
+
+- name: Create supervisor configuration
+  template: src=kotti_project.conf dest=/etc/supervisor/conf.d/{{ server_hostname }}.conf
+
+- name: Ensure supervisor is running
+  service:
+    name: supervisor
+    state: started

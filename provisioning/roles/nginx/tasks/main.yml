@@ -1,0 +1,18 @@
+---
+- name: Install nginx
+  apt: pkg=nginx state=latest
+
+- name: Create nginx configuration
+  template: src=kotti_project.conf dest=/etc/nginx/sites-available/{{ server_hostname }}.conf
+
+- name: Delete default nginx configuration
+  file: name=/etc/nginx/sites-enabled/default state=absent
+
+- name: Create link for nginx configuration
+  file: src=/etc/nginx/sites-available/{{ server_hostname }}.conf dest=/etc/nginx/sites-enabled/{{ server_hostname }}.conf state=link
+  notify: restart nginx
+
+- name: Ensure nginx is running
+  service:
+    name: nginx
+    state: started
