@@ -25,22 +25,23 @@ What is ``kotti_project``?
 You can consider ``kotti_project`` as a meta-package or a Kotti CMS **distribution** with
 the following goals:
 
-* introduces the ``project`` concept.
-  Enances the ``.ini``  and ``.txt`` setup for a structured approach suitable both for developing, 
-  production or tag-based deployments. Without introducing a more complex layer like ``buildout``
+* introduces the ``project`` concept
+    * Enances the ``.ini``  and ``.txt`` setup for a structured approach suitable both for developing, 
+      production or tag-based deployments. Without introducing a more complex layer like ``buildout``
 * tries to be more friendly to non-Python folks who want to try out Kotti.
-  It might be difficult for non-Python developers understand things like install a virtualenv,
-  activate the virtualenv and so on. That's why there is a regular ``Makefile`` that should
-  make the life easier if you want to install a Kotti project and its prerequisites.
+    * It might be difficult for non-Python developers understand things like install a virtualenv,
+      activate the virtualenv and so on. That's why there is a regular ``Makefile`` that should
+      make the life easier if you want to install a Kotti project and its prerequisites.
 
-  Also ``Vagrant`` + ``Ansible`` provisioning available for an easy evaluation or automatic
-  remote deployements
-* includes the most useful third party plugins not included in the Kotti core,
-  useful if you want to try out Kotti in a quick way
-    * navigation (``kotti_navigation``)
-    * events (``kotti_calendar``)
-    * news (``kotti_news``)
-  You can also add other Kotti plugins published on PyPI. See https://pypi.python.org/pypi?%3Aaction=search&term=kotti&submit=search
+      Also ``Vagrant`` + ``Ansible`` provisioning available for an easy evaluation or automatic
+      remote deployements
+* third party plugins
+    * includes the most useful third party plugins not included in the Kotti core,
+      useful if you want to try out Kotti in a quick way
+        * navigation (``kotti_navigation``)
+        * events (``kotti_calendar``)
+        * news (``kotti_news``)
+    * you can also add other Kotti plugins published on PyPI. See https://pypi.python.org/pypi?%3Aaction=search&term=kotti&submit=search
 * Kotti CMS "batteries included" installation
     * make commands for build and installation
     * right env setup
@@ -50,10 +51,14 @@ the following goals:
     * sqlalchemy string connection examples for the most used relational databases
 * Windows support
     * there is a module ready to be installed as a Windows service with a file system error log handler
-* scaffolding/seed tool, you can generate your own custom projects starting from ``kotti_project`` (eg: ``$ kotti_project_clone kotti_anotherproject``)
-* project **documentation** support based on Sphinx, ready to be used (http://localhost:5000/docs/)
-* easy assets customization (``kotti-overrides`` ready to be used)
-* provides working and ready to be used real world database connection examples (see ``provisioning``)
+* scaffolding/seed tool
+    * you can generate your own custom projects starting from ``kotti_project`` (eg: ``$ kotti_project_clone kotti_anotherproject``)
+* project **documentation** support
+    * keep track of changes and write your project documentation with Sphinx, ready to be used (http://localhost:5000/docs/, requires admin privileges)
+* easy assets customization
+    * ``kotti-overrides`` ready to be used (override Kotti's templates and resources)
+* deploy examples
+    * provides working and ready to be used real world database connection examples and deploy methods (see ``provisioning``)
 
 Installation
 ============
