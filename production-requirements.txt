@@ -1,6 +1,6 @@
 -r kotti-requirements.txt
 
-Kotti==1.1.3
+Kotti==1.1.4
 
 # Third party's eggs
 kotti_newsitem==0.2

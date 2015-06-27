@@ -21,7 +21,7 @@ help:
 	@echo "  clean-all                to clean all python virtualenvs"
 	@echo "  update-requirements      to make requirements.txt"
 	@echo "  html                     to make HTML Sphinx html documentation"
-	@echo "  update-kotti             to update Kotti version. Usage: 'make VERSION=1.1.3 update-kotti'"
+	@echo "  update-kotti             to update Kotti version. Usage: 'make VERSION=1.1.4 update-kotti'"
 
 install-prerequisites:
 	@echo ">>> Install prerequisites"
