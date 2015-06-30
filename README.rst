@@ -50,7 +50,7 @@ the following goals:
       or run ``vagrant up``
     * sqlalchemy string connection examples for the most used relational databases
 * Windows support
-    * there is a module ready to be installed as a Windows service with a file system error log handler
+    * there is a module (``kottisvc.py``) ready to be installed as a Windows service (see http://pyramid-cookbook.readthedocs.org/en/latest/deployment/windows.html) with a file system error log handler
 * scaffolding/seed tool
     * you can generate your own custom projects starting from ``kotti_project`` (eg: ``$ kotti_project_clone kotti_anotherproject``)
 * project **documentation** support
