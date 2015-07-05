@@ -50,7 +50,7 @@ run-dev:
 	$(VIRTUALENV_NAME_DEV)/bin/pserve development.ini --reload
 
 run-production:
-	$(VIRTUALENV_NAME_DEV)/bin/pserve development.ini
+	$(VIRTUALENV_NAME)/bin/pserve development.ini
 
 python-dev:
 	@echo ">>> Create virtualenv dev"
@@ -64,11 +64,11 @@ python:
 
 clean-python-dev:
 	@echo ">>> Clear virtualenv dev"
-	rm -rf python-dev
+	rm -rf $(VIRTUALENV_NAME_DEV)
 
 clean-python:
 	@echo ">>> Clear virtualenv production"
-	rm -rf python
+	rm -rf $(VIRTUALENV_NAME)
 
 clean-all:
 	@echo ">>> Clear ALL virtualenvs"
