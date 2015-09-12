@@ -1,4 +1,4 @@
-Kotti==1.1.4
+Kotti==1.1.5
 
 # Third party's eggs
 kotti-newsitem==0.2
@@ -14,9 +14,9 @@ pyramid-exclog==0.7
 
 
 ## The following requirements were added by pip freeze:
-alembic==0.7.6
+alembic==0.8.2
 appdirs==1.4.0
-Babel==1.3
+Babel==2.0
 Beaker==1.7.0
 beautifulsoup4==4.4.0
 bleach==1.4.1
@@ -28,10 +28,10 @@ coverage==3.7.1
 deform==2.0a2
 docopt==0.6.2
 fanstatic==1.0a5
-filedepot==0.0.6
+filedepot==0.1.0
 FormEncode==1.3.0
 html2text==2015.6.21
-html5lib==1.0b6
+html5lib==1.0b7
 iso8601==0.1.10
 js.angular==1.1.4
 js.bootstrap==3.3.4
@@ -53,17 +53,17 @@ js.momentjs==2.8.3.post1
 js.select2==3.4.1
 js.tinymce==4.1.5
 kotti-tinymce==0.5.3
-lingua==3.10
-Mako==1.0.1
+lingua==3.11
+Mako==1.0.2
 MarkupSafe==0.23
 mechanize==0.2.5
 Paste==2.0.2
 PasteDeploy==1.5.2
 PasteScript==2.0.2
 peppercorn==0.5
-Pillow==2.8.2
+Pillow==2.9.0
 plone.scale==1.3.5
-polib==1.0.6
+polib==1.0.7
 psycopg2==2.6.1
 py==1.4.30
 py-bcrypt==0.4
@@ -71,7 +71,7 @@ Pygments==2.0.2
 pyramid==1.5.7
 pyramid-beaker==0.8
 pyramid-chameleon==0.3
-pyramid-debugtoolbar==2.4
+pyramid-debugtoolbar==2.4.1
 pyramid-deform==0.2
 pyramid-mailer==0.14.1
 pyramid-mako==1.0.2
@@ -79,6 +79,7 @@ pyramid-tm==0.12
 pyramid-zcml==1.0.0
 pytest==2.7.2
 pytest-cov==1.8.1
+python-editor==0.4
 pytz==2015.4
 repoze.lru==0.6
 repoze.sendmail==4.2
@@ -86,14 +87,14 @@ repoze.workflow==0.6.1
 repoze.zcml==1.0b1
 shutilwhich==1.1.0
 six==1.9.0
-SQLAlchemy==1.0.6
+SQLAlchemy==1.0.8
 transaction==1.4.4
 translationstring==1.3
 Unidecode==0.4.18
 usersettings==1.0.7
 uWSGI==2.0.11
 venusian==1.0
-waitress==0.8.9
+waitress==0.8.10
 WebOb==1.4.1
 WebTest==2.0.18
 wsgi-intercept==0.10.0
