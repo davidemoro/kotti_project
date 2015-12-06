@@ -1,4 +1,13 @@
 ---
+- name: Locales
+  locale_gen: name='en_US.UTF-8' state=present
+
+- name: locale fix
+  lineinfile: dest=/etc/default/locale line='LANGUAGE="en_US.UTF-8"' insertafter='EOF' regexp='LANGUAGE="en_US.UTF-8"' state=present
+
+- name: LC_ALL env
+  lineinfile: dest=/etc/default/locale line='LC_ALL="en_US.UTF-8"' insertafter='EOF' regexp='LC_ALL="en_US.UTF-8"' state=present
+
 - name: ensure packages are installed
   apt:  pkg={{item}} state=latest
   with_items:
