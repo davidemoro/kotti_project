@@ -1,7 +1,7 @@
 -r kotti-requirements.txt
 
 # Kotti
-Kotti[development,testing]==1.2.1
+Kotti[development,testing]==1.2.4
 
 # devel (to no be added in production)
 zest.releaser
